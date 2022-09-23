@@ -1,8 +1,12 @@
 import http from 'http';
 
+import users from './user.json'
+
 const server = http.createServer((req, res) => {
-  res.write("<h1>Hello world !");
-  res.end();
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.end(JSON.stringify(users));
 })
 
-server.listen(3001, () => console.log("server is running"));
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => console.log("server is running"));
