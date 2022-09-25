@@ -4,6 +4,6 @@ import { router } from "./router";
 
 const server = http.createServer((req, res) => router(req,res));
 
-const PORT = process.env.PORT || 3013;
+const PORT = process.env.PORT || 3014;
 
 server.listen(PORT, () => console.log("server is running"));

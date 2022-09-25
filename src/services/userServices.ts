@@ -15,3 +15,12 @@ import * as UserModels from "../models/UserModel";
       message: 'Users fetched successfully',
     };
   };
+
+  export const getUser = async (id: number) : Promise<Success<User>> => {
+    const user = await UserModels.getUser(id);
+
+    return {
+      data: user,
+      message: "User fetched"
+    }
+  }

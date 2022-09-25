@@ -8,6 +8,10 @@ export const router = (req: IncomingMessage, res: ServerResponse) => {
         userController.getAllUsers(req, res);
         break
 
+    case req.url?.match(/\/users\/([0-9]+)/) && req.method === "GET":
+        userController.getUser(req, res);
+        break
+
     default:
       res.writeHead(400, { "Content-Type": "application/json" });
       res.end(JSON.stringify({ message: "Route not found" }));
