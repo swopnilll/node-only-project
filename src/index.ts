@@ -1,21 +1,9 @@
-import http from 'http';
+import http from "http";
 
-import users from './user.json'
+import { router } from "./router";
 
-const server = http.createServer((req, res) => {
+const server = http.createServer((req, res) => router(req,res));
 
-  if(req.url === '/users' && req.method === "GET"){
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify(users));
-  }else{
-    res.writeHead(400, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify({message: 'Route nor found'}));
-  }
-
-
-
-})
-
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3013;
 
 server.listen(PORT, () => console.log("server is running"));
