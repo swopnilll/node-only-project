@@ -4,7 +4,7 @@ import users from './user.json'
 
 const server = http.createServer((req, res) => {
 
-  if(req.url === '/users'){
+  if(req.url === '/users' && req.method === "GET"){
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.end(JSON.stringify(users));
   }else{
